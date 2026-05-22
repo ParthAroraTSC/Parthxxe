@@ -21,7 +21,6 @@ export const metadata: Metadata = {
 
 import Sidebar from "@/components/Sidebar";
 import AntiInspect from "@/components/AntiInspect";
-import ScrollToTop from "@/components/ScrollToTop";
 
 export default function RootLayout({
   children,
@@ -36,7 +35,6 @@ export default function RootLayout({
       <body className="min-h-full flex bg-black text-white overflow-x-hidden">
         <Sidebar />
         <AntiInspect />
-        <ScrollToTop />
         <div className="flex-1 flex flex-col min-h-screen relative md:ml-[260px] lg:ml-0 w-full md:w-[calc(100%-260px)] lg:w-full">
           <Navbar />
           <IPTracker />
