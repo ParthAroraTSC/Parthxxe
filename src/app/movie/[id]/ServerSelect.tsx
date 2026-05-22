@@ -295,6 +295,7 @@ export default function ServerSelect({ id, type, apiKey, item }: { id: string; t
         className="w-full h-full min-h-[50vh] flex-1 border-none"
         allowFullScreen
         title="Video Player"
+        sandbox="allow-scripts allow-same-origin allow-presentation"
       />
     </div>
   );
