@@ -1,3 +1,4 @@
+import { Suspense } from "react";
 import InfiniteGrid from "@/components/InfiniteGrid";
 
 const platforms: Record<string, { id: string, name: string, logo: string, logoClass: string }> = {
@@ -48,7 +49,9 @@ export default async function PlatformPage({ params }: { params: { name: string 
       
       {/* Dynamic Infinite Scroll Grid tailored to this platform */}
       <div className="w-full">
-        <InfiniteGrid defaultPlatform={platform.id} />
+        <Suspense fallback={<div className="text-center py-20"><div className="w-10 h-10 border-4 border-red-600 border-t-transparent rounded-full animate-spin mx-auto" /></div>}>
+          <InfiniteGrid defaultPlatform={platform.id} />
+        </Suspense>
       </div>
     </div>
   );

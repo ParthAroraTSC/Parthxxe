@@ -1,0 +1,31 @@
+
+> pixelmovies@0.1.0 build
+> next build
+
+▲ Next.js 16.2.6 (Turbopack)
+- Environments: .env.local
+
+  Creating an optimized production build ...
+✓ Compiled successfully in 2.6s
+  Running TypeScript ...
+  Finished TypeScript in 2.9s ...
+  Collecting page data using 13 workers ...
+  Generating static pages using 13 workers (0/9) ...
+  Generating static pages using 13 workers (2/9) 
+  Generating static pages using 13 workers (4/9) 
+  Generating static pages using 13 workers (6/9) 
+RapidAPI warning: 403 Forbidden
+⨯ useSearchParams() should be wrapped in a suspense boundary at page "/". Read more: https://nextjs.org/docs/messages/missing-suspense-with-csr-bailout
+    at S (/home/parth/.project/pixelmovies/.next/server/chunks/ssr/node_modules_12xrik1._.js:2:2692)
+    at r (/home/parth/.project/pixelmovies/.next/server/chunks/ssr/node_modules_12xrik1._.js:4:6760)
+    at /home/parth/.project/pixelmovies/.next/server/chunks/ssr/_0fz0-y1._.js:1:6272
+    at an (/home/parth/.project/pixelmovies/node_modules/next/dist/compiled/next-server/app-page-turbo.runtime.prod.js:2:84267)
+    at ai (/home/parth/.project/pixelmovies/node_modules/next/dist/compiled/next-server/app-page-turbo.runtime.prod.js:2:86086)
+    at ai (/home/parth/.project/pixelmovies/node_modules/next/dist/compiled/next-server/app-page-turbo.runtime.prod.js:2:104615)
+    at al (/home/parth/.project/pixelmovies/node_modules/next/dist/compiled/next-server/app-page-turbo.runtime.prod.js:2:107860)
+    at ao (/home/parth/.project/pixelmovies/node_modules/next/dist/compiled/next-server/app-page-turbo.runtime.prod.js:2:105275)
+    at am (/home/parth/.project/pixelmovies/node_modules/next/dist/compiled/next-server/app-page-turbo.runtime.prod.js:2:112789)
+    at ai (/home/parth/.project/pixelmovies/node_modules/next/dist/compiled/next-server/app-page-turbo.runtime.prod.js:2:98715)
+Error occurred prerendering page "/". Read more: https://nextjs.org/docs/messages/prerender-error
+Export encountered an error on /page: /, exiting the build.
+⨯ Next.js build worker exited with code: 1 and signal: null
