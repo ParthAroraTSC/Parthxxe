@@ -1,6 +1,0 @@
-[build]
-  command = "mkdir -p dist && cp pixel-movies.html dist/index.html"
-  publish = "dist"
-
-[build.environment]
-  NODE_VERSION = "18"
