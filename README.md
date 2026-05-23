@@ -10,16 +10,7 @@ PixelMovies is a premium, high-fidelity movie discovery platform built with Next
 
 ## Screenshots 📸
 
-*(Add your screenshots to the repository and link them below!)*
-
-![Desktop View](./public/desktop-screenshot.png)
-*Desktop cinematic experience*
-
-![Mobile View](./public/mobile-screenshot.png)
-*Mobile responsive layout*
-
-![Loading Animation](./public/loading-screenshot.png)
-*Custom "PM" animated intro*
+*Screenshots coming soon! Feel free to add them to the repository.*
 
 ## Getting Started 🚀
 
