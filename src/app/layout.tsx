@@ -22,6 +22,7 @@ export const metadata: Metadata = {
 import Sidebar from "@/components/Sidebar";
 import AntiInspect from "@/components/AntiInspect";
 import SplashScreen from "@/components/SplashScreen";
+import "@/components/NetflixIntro.css";
 
 export default function RootLayout({
   children,
