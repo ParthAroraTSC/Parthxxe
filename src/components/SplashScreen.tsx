@@ -6,25 +6,32 @@ import NetflixIntro from "./NetflixIntro";
 export default function SplashScreen() {
   const [state, setState] = useState<'waiting' | 'playing' | 'done'>('waiting');
 
-  useEffect(() => {
-    if (state !== 'playing') return;
+  const handleEnter = () => {
+    if (state !== 'waiting') return;
+    
+    setState('playing');
 
+    // Create the audio directly in the click handler to guarantee browser authorization
     const audio = new Audio('/nouveau-jingle-netflix.mp3');
     audio.volume = 1.0;
+    
+    // Play instantly to unlock the audio context for iOS/Safari
+    audio.play().catch(() => {});
+    audio.pause();
+    audio.currentTime = 0;
 
-    const timer = setTimeout(() => {
-      audio.play().catch((err) => console.log("Autoplay blocked by browser:", err));
+    // Now that it's unlocked, we can safely play it with a timeout to match the animation
+    setTimeout(() => {
+      audio.play().catch((err) => console.log("Audio still blocked:", err));
     }, 500);
-
-    return () => clearTimeout(timer);
-  }, [state]);
+  };
 
   if (state === 'done') return null;
 
   return (
     <div 
       className={`fixed inset-0 z-[9999] bg-black overflow-hidden flex items-center justify-center ${state === 'waiting' ? 'cursor-pointer' : ''}`}
-      onClick={() => { if (state === 'waiting') setState('playing'); }}
+      onClick={handleEnter}
     >
       {state === 'waiting' && (
         <div className="flex flex-col items-center justify-center animate-pulse">
