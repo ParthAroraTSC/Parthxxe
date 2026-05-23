@@ -39,9 +39,11 @@ export default function SplashScreen() {
   if (state === 'done') return null;
 
   return (
-    <div className="fixed inset-0 z-[9999] bg-black flex items-center justify-center overflow-hidden">
+    <div className="fixed inset-0 z-[9999] bg-black overflow-hidden flex items-center justify-center">
       {state === 'playing' && (
-        <NetflixIntro onComplete={() => setState('done')} letters="PM" />
+        <div className="w-full h-full flex items-center justify-center">
+          <NetflixIntro onComplete={() => setState('done')} letters="PM" />
+        </div>
       )}
     </div>
   );

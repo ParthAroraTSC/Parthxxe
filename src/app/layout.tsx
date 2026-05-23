@@ -21,8 +21,10 @@ export const metadata: Metadata = {
 
 import Sidebar from "@/components/Sidebar";
 import AntiInspect from "@/components/AntiInspect";
-import SplashScreen from "@/components/SplashScreen";
+import dynamic from "next/dynamic";
 import "@/components/NetflixIntro.css";
+
+const SplashScreen = dynamic(() => import("@/components/SplashScreen"), { ssr: false });
 
 export default function RootLayout({
   children,
