@@ -4,42 +4,36 @@ import { useState, useEffect } from "react";
 import NetflixIntro from "./NetflixIntro";
 
 export default function SplashScreen() {
-  const [state, setState] = useState<'playing' | 'done'>('playing');
+  const [state, setState] = useState<'waiting' | 'playing' | 'done'>('waiting');
 
   useEffect(() => {
-    // Instantiate audio object
-    const audio = new Audio('/nouveau-jingle-netflix.mp3');
-    audio.volume = 0.5;
+    if (state !== 'playing') return;
 
-    // Start playback after 500ms to perfectly align with the zoom-in and brush flash
+    const audio = new Audio('/nouveau-jingle-netflix.mp3');
+    audio.volume = 1.0;
+
     const timer = setTimeout(() => {
       audio.play().catch((err) => console.log("Autoplay blocked by browser:", err));
     }, 500);
 
-    // Aggressive fallback: If the user clicks or presses any key during the splash screen, 
-    // force the audio to play if it was blocked.
-    const handleInteraction = () => {
-      if (audio.paused && state === 'playing') {
-        audio.play().catch(() => {});
-      }
-    };
-
-    window.addEventListener('click', handleInteraction);
-    window.addEventListener('keydown', handleInteraction);
-    window.addEventListener('touchstart', handleInteraction);
-
-    return () => {
-      clearTimeout(timer);
-      window.removeEventListener('click', handleInteraction);
-      window.removeEventListener('keydown', handleInteraction);
-      window.removeEventListener('touchstart', handleInteraction);
-    };
+    return () => clearTimeout(timer);
   }, [state]);
 
   if (state === 'done') return null;
 
   return (
-    <div className="fixed inset-0 z-[9999] bg-black overflow-hidden flex items-center justify-center">
+    <div 
+      className={`fixed inset-0 z-[9999] bg-black overflow-hidden flex items-center justify-center ${state === 'waiting' ? 'cursor-pointer' : ''}`}
+      onClick={() => { if (state === 'waiting') setState('playing'); }}
+    >
+      {state === 'waiting' && (
+        <div className="flex flex-col items-center justify-center animate-pulse">
+          <div className="text-zinc-400 text-xs tracking-[0.5em] uppercase font-light mb-2">PixelMovies</div>
+          <div className="text-white text-lg tracking-[0.2em] font-medium border border-white/20 px-8 py-3 rounded-full hover:bg-white/10 transition-colors">
+            Tap To Enter
+          </div>
+        </div>
+      )}
       {state === 'playing' && (
         <div className="w-full h-full flex items-center justify-center">
           <NetflixIntro onComplete={() => setState('done')} letters="PM" />
