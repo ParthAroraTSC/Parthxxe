@@ -1,6 +1,5 @@
-import type { NextConfig } from "next";
-
-const nextConfig: any = {
+/** @type {import('next').NextConfig} */
+const nextConfig = {
   images: {
     remotePatterns: [
       {
@@ -17,11 +16,9 @@ const nextConfig: any = {
       }
     ],
   },
-  // @ts-ignore
   eslint: {
     ignoreDuringBuilds: true,
   },
-  // @ts-ignore
   typescript: {
     ignoreBuildErrors: true,
   },
